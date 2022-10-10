@@ -1,0 +1,14 @@
+.statTitle{
+    font-size: 27px;
+    font-weight: 700;
+}
+.statText{
+    font-size: 20px;
+    font-weight: 500;
+   
+}
+.statResult{
+    font-size: 24px;
+    font-weight: 600;
+    margin-left: 5px;
+}
