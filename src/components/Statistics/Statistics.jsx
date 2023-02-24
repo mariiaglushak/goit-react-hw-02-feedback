@@ -1,27 +1,35 @@
-import PropTypes from 'prop-types'
-import css from "./Statistics.module.css"
+import PropTypes from 'prop-types';
+import { StatisticsText, StatisticsResult } from './StatisticsStyle';
 
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
+  return (
+    <div>
+      <StatisticsText>
+        Good:<StatisticsResult>{good}</StatisticsResult>
+      </StatisticsText>
+      <StatisticsText>
+        Neutral:<StatisticsResult>{neutral}</StatisticsResult>
+      </StatisticsText>
+      <StatisticsText>
+        Bad:<StatisticsResult>{bad}</StatisticsResult>
+      </StatisticsText>
+      <StatisticsText>
+        Total:<StatisticsResult>{total()}</StatisticsResult>
+      </StatisticsText>
+      <StatisticsText>
+        Positive feedback:
+        <StatisticsResult>{positivePercentage()}%</StatisticsResult>
+      </StatisticsText>
+    </div>
+  );
+};
 
-const Statistics = ({ good, neutral, bad, countTotalFeedback, countPositiveFeedbackPercentage}) => {
-    
-    return (
-        <div>
-             <h2 className={css.statTitle}>Statistics</h2>
-             <p className={css.statText}>Good:<span className={css.statResult}>{good}</span></p>
-             <p className={css.statText}>Neutral:<span className={css.statResult}>{neutral}</span></p>
-             <p className={css.statText}>Bad:<span className={css.statResult}>{bad}</span></p>
-             <p className={css.statText}>Total:<span className={css.statResult}>{countTotalFeedback()}</span></p>
-            <p className={css.statText}>Positive feedback:<span className={css.statResult}>{countPositiveFeedbackPercentage()}%</span></p>
-        </div>
-    )
-}
-
-export default Statistics
+export default Statistics;
 
 Statistics.propTypes = {
-    good: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-    countTotalFeedback: PropTypes.func,
-    countPositiveFeedbackPercentage: PropTypes.func
-}
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.func,
+  positivePercentage: PropTypes.func,
+};

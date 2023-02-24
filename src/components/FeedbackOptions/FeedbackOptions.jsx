@@ -1,19 +1,17 @@
-import PropTypes from 'prop-types'
-import css from "./FeedbackStyle.module.css"
+import PropTypes from 'prop-types';
 
+import { FeedbackBtn } from './FeedbackOptionsStyle';
 
-
-
-const FeedbackOptions = ({ onLeaveFeedback, onClick }) => {
-    return (
-        <button onClick={onClick} type='button' className={css.statButton}>
-            {onLeaveFeedback}
-    </button>
-    )
-}
-export default FeedbackOptions
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+  return options.map(option => (
+    <FeedbackBtn onClick={onLeaveFeedback} type="button" key={option}>
+      {option}
+    </FeedbackBtn>
+  ));
+};
+export default FeedbackOptions;
 
 FeedbackOptions.propTypes = {
-    onLeaveFeedback: PropTypes.string.isRequired,
-    onClick: PropTypes.func
-}
+  onLeaveFeedback: PropTypes.func.isRequired,
+  options: PropTypes.array.isRequired,
+};
