@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import { Message } from './NotificationStyle';
 
 const Notification = ({ message }) => {
@@ -7,7 +5,3 @@ const Notification = ({ message }) => {
 };
 
 export default Notification;
-
-Notification.propTypes = {
-  message: PropTypes.string.isRequired,
-};
