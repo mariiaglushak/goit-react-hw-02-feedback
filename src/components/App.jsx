@@ -14,21 +14,11 @@ export default class App extends Component {
 
   handleUpdate = event => {
     const { innerText } = event.target;
-    console.log(innerText);
-    switch (innerText) {
-      case 'good':
-        this.setState(prevState => ({ good: prevState.good + 1 }));
-        break;
-      case 'neutral':
-        this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
-        break;
-      case 'bad':
-        this.setState(prevState => ({ bad: prevState.bad + 1 }));
-        break;
-
-      default:
-        new Error('Something went wrong!');
-    }
+    this.setState(prevState => {
+      return {
+        [innerText]: prevState[innerText] + 1,
+      };
+    });
   };
 
   countTotalFeedback = () => {
